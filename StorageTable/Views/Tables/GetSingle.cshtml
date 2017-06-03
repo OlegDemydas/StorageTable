@@ -1,0 +1,23 @@
+﻿
+@model Microsoft.WindowsAzure.Storage.Table.TableResult
+@{
+    ViewBag.Title = "GetSingle";
+}
+
+<h2>Get Single results</h2>
+
+<table border="1">
+    <tr>
+        <th>HTTP result</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <td>@Model.HttpStatusCode</td>
+        <td>@((Model.Result as StorageTable.Models.CustomerEntity).RowKey)</td>
+        <td>@((Model.Result as StorageTable.Models.CustomerEntity).PartitionKey)</td>
+        <td>@((Model.Result as StorageTable.Models.CustomerEntity).Email)</td>
+    </tr>
+</table>
+
